@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Timetable and Attendance</title>
+    <link rel="stylesheet" href="messstyles.css">
+</head>
+<body>
+    <div class="timetable">
+        <h2>Mess Timetable</h2>
+        <table id="timetable">
+            <tr>
+                <th>Day</th>
+                <th>Morning</th>
+                <th>Afternoon</th>
+                <th>Night</th>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td>Dosa</td>
+                <td>Potato</td>
+                <td>Chicken</td>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>Chapathi</td>
+                <td>Tomato</td>
+                <td>Egg curry</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>Vada</td>
+                <td>Rice</td>
+                <td>Cabbage</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>Parota</td>
+                <td>Brinjal</td>
+                <td>Chicken</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>Puri</td>
+                <td>Dal</td>
+                <td>Potato</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>Idly</td>
+                <td>Cauli Flower</td>
+                <td>Egg</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>Bonda</td>
+                <td>Dal</td>
+                <td>Cucumber</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="attendance">
+        <h2>Attendance</h2>
+        <form id="attendance-form" action="mess.php" method="post">
+            <table id="attendance">
+                <tr>
+                    <th>Morning (Break fast)</th>
+                    <th>Afternoon (Lunch)</th>
+                    <th>Night (Dinner)</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="morning" id="morning"></td>
+                    <td><input type="checkbox" name="afternoon" id="afternoon"></td>
+                    <td><input type="checkbox" name="night" id="night"></td>
+                </tr>
+            </table>
+            <button type="submit">Send Attendance</button>
+        </form>
+    </div>
+</body>
+</html>

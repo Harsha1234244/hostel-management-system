@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container my-5 py-5">
+        <header class="text-center mb-4">
+            <img src="images/logo.png" alt="Institute Logo" class="logo mb-3">
+            <h1>KAKATIYA INSTITUTE OF TECHNOLOGY & SCIENCE</h1>
+        </header>
+        <main class="row justify-content-center">
+            <div class="col-md-6 mb-4">
+                <div id="login-section" class="form-section p-4 rounded">
+                    <h2 class="mb-4 text-center">LOGIN</h2>
+                    <form id="login-form" action="#">
+                        <div class="form-group">
+                            <label for="login-username">Username</label>
+                            <input type="text" id="login-username" name="username" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <p class="text-center mt-3">
+                            Don't have an account? <a href="#" id="show-signup">Sign Up</a>
+                        </p>
+                    </form>
+                </div>
+                <div id="signup-section" class="form-section p-4 rounded" style="display: none;">
+                    <h2 class="mb-4 text-center">SIGN UP</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="signup-username">Username</label>
+                            <input type="text" id="signup-username" name="signup-username" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" name="signup-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" name="signup-password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                        <p class="text-center mt-3">
+                            Already have an account? <a href="#" id="show-login">Login</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS for toggling forms and handling login -->
+    <script>
+        document.getElementById('show-signup').addEventListener('click', function() {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('signup-section').style.display = 'block';
+        });
+
+        document.getElementById('show-login').addEventListener('click', function() {
+            document.getElementById('signup-section').style.display = 'none';
+            document.getElementById('login-section').style.display = 'block';
+        });
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            var username = document.getElementById('login-username').value.trim();
+            var password = document.getElementById('login-password').value.trim();
+
+            if (username !== '' && password !== '') {
+                window.location = "page2.html";
+            } else {
+                alert('Please enter username and password.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .payment-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .payment-method {
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .payment-method:hover {
+            background-color: #f0f0f0;
+        }
+        .payment-method img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-container">
+    <h2>Select Payment Method</h2>
+    <div class="payment-methods">
+        <div class="payment-method">
+            <img src="images/visa.png" alt="Visa">
+            <div>Visa Card</div>
+        </div>
+        <div class="payment-method">
+            <img src="images/mastercard.png" alt="MasterCard">
+            <div>MasterCard</div>
+        </div>
+        <div class="payment-method">
+            <img src="images/paypal.jpg" alt="PayPal">
+            <div>PayPal</div>
+        </div>
+        <div class="payment-method">
+            <img src="images/gpay.jpg" alt="Google Pay">
+            <div>Google Pay</div>
+        </div>
+    </div>
+    <form action="process_payment.php" method="post">
+        <label for="card-number">Card Number:</label><br>
+        <input type="text" id="card-number" name="card-number" placeholder="Enter your card number" required><br><br>
+        <label for="expiry">Expiry Date:</label><br>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YYYY" required><br><br>
+        <label for="cvv">CVV:</label><br>
+        <input type="text" id="cvv" name="cvv" placeholder="CVV" required><br><br>
+        <label for="name">Name on Card:</label><br>
+        <input type="text" id="name" name="name" placeholder="Full name" required><br><br>
+        <button type="submit">Pay Now</button>
+    </form>
+</div>
+
+</body>
+</html>

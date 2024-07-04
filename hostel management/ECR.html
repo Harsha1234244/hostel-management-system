@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Problem Statement Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #faf2f2;
+        background:url('images/ECE.jpg')  no-repeat right fixed;
+        padding: 20px;
+        background-size:450px 500px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px; 
+    }
+
+    .form-group input[type="text"],
+    .form-group textarea {
+        width: 95%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .form-group textarea {
+        height: 120px;
+    }
+
+    .form-group button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .form-group button:hover {
+        background-color: #0056b3;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+
+    .home-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #007bff; 
+        color: #3824b5; 
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .home-btn:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+</style>
+</head>
+<body>
+
+<a href="page2.html" class="home-btn">Home</a>
+
+<div class="container">
+    <h2>Report a Problem</h2>
+    <form id="problemForm" action="ECR.php" method="POST">
+        <div class="form-group">
+            <label for="blockNumber">Block Number</label>
+            <input type="text" id="blockNumber" name="blockNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="floorNumber">Floor Number</label>
+            <input type="text" id="floorNumber" name="floorNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="roomNumber">Room Number</label>
+            <input type="text" id="roomNumber" name="roomNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="submitBtn">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('problemForm').addEventListener('submit', function(event) {
+        if (!validateForm()) {
+            event.preventDefault();
+        }
+    });
+
+    function validateForm() {
+        let blockNumber = document.getElementById('blockNumber').value.trim();
+        let floorNumber = document.getElementById('floorNumber').value.trim();
+        let roomNumber = document.getElementById('roomNumber').value.trim();
+        let description = document.getElementById('description').value.trim();
+        let isValid = true;
+        if (blockNumber === '' || floorNumber === '' || roomNumber === '' || description === '') {
+            isValid = false;
+            displayErrorMessage('All fields are required.');
+        }
+
+        return isValid;
+    }
+
+    function displayErrorMessage(message) {
+        let errorDiv = document.createElement('div');
+        errorDiv.textContent = message;
+        errorDiv.classList.add('error-message');
+        
+        let form = document.getElementById('problemForm');
+        form.insertBefore(errorDiv, document.getElementById('submitBtn'));
+    }
+</script>
+
+</body>
+</html>

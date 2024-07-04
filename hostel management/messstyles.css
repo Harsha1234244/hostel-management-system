@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: whitesmoke;
+    padding: 20px;
+}
+
+.timetable, .attendance {
+    background-color: whitesmoke;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#timetable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#timetable th, #timetable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgb(7, 4, 4);
+}
+
+#timetable th {
+    background-color: whitesmoke;
+}
+
+#timetable td:first-child {
+    font-weight: bold;
+}
+#attendance {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#attendance th, #attendance td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgb(10, 9, 9);
+}
+
+#attendance th {
+    background-color: rgb(244, 240, 240);
+}
+#attendance-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #e2f4f7;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#attendance-form button:hover {
+    background-color: #45a049;
+}
+@media (max-width: 768px) {
+    .timetable, .attendance {
+        padding: 10px;
+    }
+    #timetable th, #timetable td, #attendance th, #attendance td {
+        font-size: 14px;
+    }
+    #attendance-form button {
+        font-size: 14px;
+    }
+}

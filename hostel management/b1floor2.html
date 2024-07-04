@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            position: relative; 
+        }
+        .home-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            background-color: #007bff; 
+            color: white; 
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .room {
+            border: 1px solid #000;
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+            width: 30%;
+            transition: background-color 0.3s;
+        }
+        .full {
+            background-color: #ffcccb; 
+        }
+        .partial {
+            background-color: #fffacd; 
+        }
+        .available {
+            background-color: #c8e6c9; 
+        }
+        .room-info {
+            display: none;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            background-color: #ffffff;
+        }
+        .book-room {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function showRoomInfo(roomNumber) {
+            var infoDivs = document.getElementsByClassName('room-info');
+            for (var i = 0; i < infoDivs.length; i++) {
+                infoDivs[i].style.display = 'none';
+            }
+            document.getElementById('room-info-' + roomNumber).style.display = 'block';
+        }
+
+        function confirmBooking(roomNumber) {
+            if (confirm("Are you sure you want to book Room " + roomNumber + "?")) {
+                window.location.href = "payment.html"; 
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h1>Room Booking</h1>
+
+<a href="page2.html" class="home-button">Home</a>
+
+<div class="container">
+    <div class="room available" onclick="showRoomInfo(1)">
+        Room 1<br>Slots Available: 3
+    </div>
+    <div id="room-info-1" class="room-info">
+        <p>Number of Fans: 1</p>
+        <p>Number of Lights: 2</p>
+        <p>Ventilation: Good</p>
+        <p>AC: No</p>
+        <p>Number of Persons: 3</p>
+        <p>Cost: ₹76,000 per year</p>
+        <p>Slots Available: 3</p>
+        <ul>
+            <li>Roll No: 101, Name: Adam Smith</li>
+            <li>Roll No: 102, Name: Emily Johnson</li>
+        </ul>
+        <a href="payment.html" class="book-room" onclick="confirmBooking(1)">Book Room 1</a>
+    </div>
+
+    <div class="room partial" onclick="showRoomInfo(2)">
+        Room 2<br>Slots Available: 1
+    </div>
+    <div id="room-info-2" class="room-info">
+        <p>Number of Fans: 2</p>
+        <p>Number of Lights: 3</p>
+        <p>Ventilation: Excellent</p>
+        <p>AC: No</p>
+        <p>Number of Persons: 3</p>
+        <p>Cost: ₹76,000 per year</p>
+        <p>Slots Available: 1</p>
+        <p>Students:</p>
+        <ul>
+            <li>Roll No: 103, Name: Olivia Brown</li>
+        </ul>
+        <a href="payment.html" class="book-room" onclick="confirmBooking(2)">Book Room 2</a>
+    </div>
+
+    <div class="room full" onclick="showRoomInfo(3)">
+        Room 3<br>Slots Available: 0
+    </div>
+    <div id="room-info-3" class="room-info">
+        <p>Number of Fans: 1</p>
+        <p>Number of Lights: 2</p>
+        <p>Ventilation: Good</p>
+        <p>AC: No</p>
+        <p>Number of Persons: 3</p>
+        <p>Cost: ₹76,000 per year</p>
+        <p>Slots Available: 0</p>
+        <p>Students:</p>
+        <ul>
+            <li>Roll No: 104, Name: James Wilson</li>
+            <li>Roll No: 105, Name: Sophia Davis</li>
+            <li>Roll No: 106, Name: William Martinez</li>
+        </ul>
+        <a href="payment.html" class="book-room" onclick="confirmBooking(3)">Book Room 3</a>
+    </div>
+
+    <div class="room partial" onclick="showRoomInfo(4)">
+        Room 4<br>Slots Available: 2
+    </div>
+    <div id="room-info-4" class="room-info">
+        <p>Number of Fans: 2</p>
+        <p>Number of Lights: 4</p>
+        <p>Ventilation: Excellent</p>
+        <p>AC: No</p>
+        <p>Number of Persons: 3</p>
+        <p>Cost: ₹76,500 per year</p>
+        <p>Slots Available: 2</p>
+        <p>Students:</p>
+        <ul>
+            <li>Roll No: 107, Name: Benjamin Thompson</li>
+            <li>Roll No: 108, Name: Mia Moore</li>
+        </ul>
+        <a href="payment.html" class="book-room" onclick="confirmBooking(4)">Book Room 4</a>
+    </div>
+
+    <div class="room available" onclick="showRoomInfo(5)">
+        Room 5<br>Slots Available: 3
+    </div>
+    <div id="room-info-5" class="room-info">
+        <p>Number of Fans: 1</p>
+        <p>Number of Lights: 3</p>
+        <p>Ventilation: Average</p>
+        <p>AC: No</p>
+        <p>Number of Persons: 3</p>
+        <p>Cost: ₹76,000 per year</p>
+        <p>Slots Available: 3</p>
+    </div>
+
+    <div class="room full" onclick="showRoomInfo(6)">
+        Room 6<br>Slots Available: 0
+    </div>
+    <div id="room-info-6" class="room-info">
+        <p>Number of Fans: 2</p>
+        <p>Number of Lights: 4</p>
+        <p>Ventilation: Good</p>
+        <p>AC: No</p>
+        <p>Number of Persons: 3</p>
+        <p>Cost: ₹76,000 per year</p>
+        <p>Slots Available: 0</p>
+        <p>Students:</p>
+        <ul>
+            <li>Roll No: 109, Name: Harper Clark</li>
+            <li>Roll No: 110, Name: Evelyn King</li>
+        </ul>
+        <a href="payment.html" class="book-room" onclick="confirmBooking(6)">Book Room 6</a>
+    </div>
+</div>
+
+</body>
+</html>
